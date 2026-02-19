@@ -2,8 +2,6 @@
 This project is designed to scrape product reviews from e-commerce platforms, analyze customer sentiment using NLP techniques, and calculate an overall trustworthiness score for each product.
 ## Project Setup 
 # 1. Open Terminal in VS Code
-Use the shortcut below to open the terminal:
-
 # 2.Create a Virtual Environment
 ```bash
 python -m venv venv
