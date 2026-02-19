@@ -1,45 +1,57 @@
-VS Code me terminal open karo (shortcut: Ctrl + ~)
-Virtual environment banana chahe to banao:
-->python -m venv venv
-->Activate karo:
-venv\Scripts\activate   # (Windows)
+# Product Trust & Sentiment Analysis System
+This project is designed to scrape product reviews from e-commerce platforms, analyze customer sentiment using NLP techniques, and calculate an overall trustworthiness score for each product.
+## Project Setup 
+# 1. Open Terminal in VS Code
+Use the shortcut below to open the terminal:
 
-Dependencies install karo:
+# 2.Create a Virtual Environment
+```bash
+python -m venv venv
+# 3. Activate the Virtual Environment (Windows)
+venv\Scripts\activate
+# 4. Install Project Dependencies
 pip install -r requirements.txt
 
-data/:
-Meaning: yah folder tumhare saare data files rakhta hai —
-jo tum scrape karte ho, clean karte ho, ya output generate karte ho.
-raw_reviews.csv → original scraped data (raw form).
-processed_reviews.csv → cleaned data (stopwords remove, lowercase, etc).
-trust_scores.csv → final file jisme har product ka trust % aur sentiment summary hogi.
+Project Directory Structure
+📁 data/
+This directory stores all datasets generated and used during the project workflow.
 
-scraper/:
-Meaning: ye folder un Python scripts ke liye hai jo websites (like Daraz, Amazon) se data nikalte hain.
-scraper.py — main script jo:
-product link input le ga,
-BeautifulSoup + requests se reviews, ratings aur seller info extract karega,
-aur output data/raw_reviews.csv me save karega.
+raw_reviews.csv
+Contains the original scraped customer reviews in raw form.
+processed_reviews.csv
+Includes cleaned and preprocessed review data (lowercasing, stopword removal, and text normalization).
+trust_scores.csv
+Final output file containing product-wise trust percentage and sentiment summary.
 
-model/:
-Meaning: yah tumhare AI/ML code ke liye folder hai —
-sentiment analysis aur trust calculation yahan hoti hai.
+📁 scraper/
+This folder contains Python scripts responsible for scraping review data from e-commerce websites.
+
+scraper.py
+Accepts product URLs as input
+Uses requests and BeautifulSoup to extract reviews, ratings, and seller details
+Saves scraped data into data/raw_reviews.csv
+
+📁 model/
+This directory holds the machine learning and natural language processing logic.
+
 sentiment_model.py
-TextBlob / Logistic Regression ka use karke har review ka positive, negative, neutral score nikalta hai.
+Performs sentiment analysis on customer reviews using approaches such as TextBlob or Logistic Regression, classifying reviews as positive, negative, or neutral.
 trust_score.py
-sab reviews ka overall trustworthiness percentage (0–100%) calculate karta hai.
+Calculates an overall trustworthiness score (0–100%) by aggregating sentiment results across all reviews.
 
-frontend/
+📁 frontend/
 
-Meaning: yah folder Streamlit app ke liye hai jahan user product link paste karega
-aur AI ke results dekhega — sentiment graph, trust score, aur recommendation.
-app.py
-ek simple dashboard banata hai
-product link input field deta hai
-result me “Trusted Product ✅” / “Be Cautious ⚠️” / “Likely Fraudulent ❌” show karta hai.
+This folder manages the user interface layer of the application.
+Displays sentiment analysis results and trust scores in a clear and user-friendly manner
+Fetches processed data from backend logic or CSV outputs
+Ensures responsive design for accessibility across multiple devices
 
+Technologies Used
+Python
+BeautifulSoup & Requests
+TextBlob / Machine Learning Models
+HTML, CSS, JavaScript
+Git & GitHub
 
-venv\Scripts\activate   # (Windows)
-then,
-
-streamlit run frontend/app.py
+Purpose of the Project
+The goal of this project is to help users evaluate product reliability by analyzing real customer feedback and generating a transparent trust score based on sentiment analysis.
